@@ -1,0 +1,13 @@
+# Site settings
+title: Mike Ward, silly human
+email: github-abuse@mikeward.net
+description: > # this means to ignore newlines until "baseurl:"
+  Some of my favorite links here. 
+  Yep, that''s all you get at this page. Sorry.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://github.mikeward.net" # the base hostname & protocol for your site
+twitter_username: mightbemike
+github_username:  mdw
+
+# Build settings
+markdown: kramdown
