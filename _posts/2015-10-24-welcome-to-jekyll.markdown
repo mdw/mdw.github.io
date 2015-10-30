@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: test-post
 title:  "Welcome Stranger"
 date:   2015-10-24 01:47:39
 categories: jekyll update

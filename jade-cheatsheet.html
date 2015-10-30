@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Mike's Jade Cheatsheet</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 align="center"> Mike's Jade Cheatsheet</h1>
+      <ul>
+        <li>shorthand syntax
+          <ul>
+            <li>use CMD-/ to write jade comment indicator <strong>//- </strong></li>
+            <li>use colon as alt method to indicate nesting <em>(e.g. table: tr: td)</em></li>
+          </ul><br>
+        </li>
+        <li>setting attributes
+          <ul>
+            <li>split attributes to multi-line and lose the commas</li>
+            <li>use [brackets] to list multiple classnames in attr list <em>class=["class1", "class2"]</em></li>
+            <li>use JSON to declare attributes as follows:
+              <pre>a()&attributes({
+	'id':    'lander',
+	'class': 'lowclass'
+})</pre>
+            </li>
+          </ul>
+        </li>
+        <li>including content
+          <ul>
+            <li>use keyword <strong>include</strong> as in <em>include filename_without_ext</em></li>
+            <li>keyword <strong>extends</strong> as in <em>extends template_file</em></li>
+            <li>keyword <strong>block</strong> <em>blockname</em> and then replace block in target doc<br>blocks can be re-used multiple times in page, use to define content blocks like vars</li>
+            <li><strong>block append</strong> <em>blockname</em> to append onto inherited block content</li>
+            <li><strong>block prepend</strong> <em>blockname</em> to prepend to inherited block content</li>
+            <li>note: append and prepend are useful in titles, meta tags, groups of stylesheet link, etc</li>
+            <li>note also that "block" keyword not neccessary when invoking block content</li><br>
+          </ul>
+        </li>
+        <li>config files
+          <ul>
+            <li>line starting with hyphen - is treated as a variable </li>
+            <li>variables included within strings and interpolated, use ruby syntax  <strong># { var-to-be-interpolated }</strong></li>
+            <li>variables included outside strings just like javascript, used normally</li>
+            <li>conditional loading via variables - good for google fonts, which vary per page<br>link( href="//fonts.googleapis.com/css?family=" + GoogleFonts
+              &nbsp; &nbsp; rel="stylesheet" 
+              )
+            </li><br>
+          </ul>
+        </li>
+        <li>language filters
+          <ul>
+            <li>they allow you to use coffeescript, less, markdown, etc ... inside your jade files</li>
+            <li>
+              <pre>script
+	:coffee
+		console.log "coffee script goes here" if truthy_var_or_expression</pre>
+            </li>
+            <li>(be sure to note the colon before language name)</li>
+            <li>example 2 - stylus:</li>
+            <li>
+              <pre>style
+	:stylus
+		.stylebox
+			color #fff
+			padding 1em</pre>
+            </li><br>
+          </ul>
+        </li>
+        <li>inline HTML
+          <ul>
+            <li>put HTML tags inline whenever, for example:</li>
+            <li><code>| &lt;script src="http://somesrc.com/scripty.js"></code></li>
+          </ul><br>
+        </li>
+        <li>including other external code source
+          <ul>
+            <li>use include:codename i.e.<br><code>include:markdown external_markdown_file.md</code></li>
+            <li>codename not needed for external HTML file<br><code>include external_html_file.html</code></li>
+          </ul><br>
+        </li>
+        <li>using javascript processing
+          <ul>
+            <li>use arrays and JS methods</li>
+            <li>javascript methods like push, concat, Math.floor</li>
+          </ul><br>
+        </li>
+        <li>mixins
+          <ul>
+            <li><code>
+                <pre>mixin navmenu()
+	// mixin code to be reused goes here</pre></code><br><code>+navmenu()   // to use this mixin</code><br></li>
+            <li>iterators - for, each can be used including arrays of object literals like - var ary = [{"a": "1"}, {"b": "2"}]</li>
+            <li>these are referenced by ary.a (has value of 1)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
