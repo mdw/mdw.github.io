@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Jade Cheatsheet and example"
-date:   2015-10-25 01:47:39
+date:   2015-10-30
 categories: jade cheatsheet gist template
 gravatar:	"https://en.gravatar.com/userimage/5924047/07f2a056d18fd10a7054b7c4d2e73ed8.jpeg"
 excerpt: I like 'jade' better than most html templating systems I've tried, although it seems very similar to HAML which I also like. So let me put a couple resources here where I can find them later ...
