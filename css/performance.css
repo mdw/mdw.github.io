@@ -1,4 +1,9 @@
 /* web performance cheatsheet css */
+
+html, body {
+	font-family: arial;
+}
+
 code, pre {
   background-color: #e0e0e0;
   padding: 5px 9px;
