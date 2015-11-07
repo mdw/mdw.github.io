@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mike's Web Performance Cheatsheet</title>
+    <link rel="stylesheet" href="css/performance.css">
+  </head>
+  <body>
+    <div class="container"><a name="top"></a>
+      <h1 align="center">Mike's Web Performance Cheatsheet</h1>
+      <div class="linksdiv"><a href="#yslow" class="dom"></a><a href="svg" class="animbasics"> </a></div>
+      <ul><a name="yslow"></a>
+        <li>YSlow rules
+          <ol>
+            <li>Fewer HTTP Requests</li>
+            <li>Use a CDN (closer to client, shared caching)</li>
+            <li>Expires/Cache-Control Header</li>
+            <li>Gzip</li>
+            <li>Stylesheets at Top</li>
+            <li>Scripts at Bottom</li>
+            <li>CSS Expressions (slow IE6 hack)</li>
+            <li>External JS/CSS (performant due to caching)</li>
+            <li>Fewer DNS Lookups</li>
+            <li>Minify Javascript/CSS</li>
+            <li>Avoid Redirects</li>
+            <li>Duplicate Scripts (e.g. plugins requesting multiple versions of jQuery)</li>
+            <li>ETags (fingerprint for a resource used for conditional loading)</li>
+            <li>Cacheable AJAX</li>
+          </ol>
+          <p>note: many of those are contradictory 
+            <ul>
+              <li>1 vs 8</li>
+              <li>2 vs 9</li>
+              <li>3 vs 13 (do not use 3 and 13)</li>
+            </ul>
+          </p><br>
+        </li>
+        <li>More Rules
+          <ul>
+            <li>Image Spriting</li>
+            <li>Concat JS/CSS</li>
+            <li>mod_deflate (Apache)</li>
+            <li>Gzip - http://www.gidnetwork.com/tools/gzip-test.php</li>
+            <li>Expires/Cache-Control</li>
+            <li>more rules: http://developer.yahoo.com/performance/rules.html</li>
+            <li>Reduce Cookie Size - huge problem on the web!</li>
+            <li>Cookie-Free Domain: assets server: make sure you do not set cookies from this domain</li>
+            <li>Optimize Sprites (e.g. horizontally oriented sprites more efficient than vertical)</li>
+            <li>&lt;img src=""&gt; empty image tags, often generated automatically</li>
+          </ul><br>
+        </li>
+        <li>resource loading
+          <ul>
+            <li>images: best practice: <code>&lt;link rel="prefetch" href="something.png"&gt;</code></li>
+            <li>old school image preloading: <br><code>
+                &lt;script&gt;
+                <br>var img = new Image();&gt;
+                <br>img.src = "something.jpg";&gt;
+                <br>&lt;/script&gt;</code><br></li>
+            <li>DNS pre-fetching: let the browser do this, eh?</li>
+            <li>lazy loading scripts <br><img src="img/lazy-script-loading.png"></li>
+            <li>dynamic loading can be useful as DOM readystate reached much earlier</li>
+            <li>document.write disclaimer: all rendering stops until this is completed (might create a script)</li>
+            <li>remember: object oriented code can be very slow in interpreted environments</li>
+          </ul><br>
+        </li>
+        <li>UI thread
+          <ul>
+            <li>Javascript has single-thread of execution for a given execution context.</li>
+            <li>Web Workers - some distinct JS file running in it's own thread, can only communicate asynchronously</li>
+            <li>garbage collection - objects that go out of scope or have their reference reset still exist on several layers. JS objects are implemented by browser as C++ objects and still occupy memory space</li>
+            <li>jsPerf.com - run head to head tests of JS snippets (benchmark.js lib)</li>
+          </ul><br>
+        </li>
+        <li>links
+          <ul>
+            <li><a href="http://www.webperformancetoday.com/">webperformancetoday.com</a></li>
+            <li><a href="http://jsperf.com">JSperf.com</a></li>
+            <li><a href="http://www.webpagetest.org/">webpagetest.org</a></li>
+            <li><a href="http://www.w3.org/2010/webperf/">W3C Web Performance Working Group</a></li>
+          </ul>
+        </li><br><a href="#top">back to top</a><br>
+      </ul>
+    </div>
+  </body>
+</html>
