@@ -11,9 +11,7 @@ excerpt: Quick how-to about setting up Emercoin to run on Debian 8.2
 
 Background: I installed this on a [digitalocean](https://digitalocean.com) droplet. They've been rock solid hosting for me, and very affordable. Tell 'em I sent you.
 
-I setup a new droplet and did the usual stuff, including the absolutely required disabling ssh login for root user. I like to run things as separate users, so `adduser emc` came next. As of Debian8 no more editing sudoers, now there's a simple command:
-
-`usermod -a -G sudo <user>` 
+I setup a new droplet and did the usual stuff, including the absolutely required disabling ssh login for root user. I like to run things as separate users, so `adduser emc` came next. As of Debian8 no more editing sudoers, now there's a simple command: `usermod -a -G sudo <user>` 
 
 Next I downloaded [emercoin](http://emercoin.com) from sourceforge - 
 
@@ -27,7 +25,7 @@ __emercoind__ is the headless daemon that you want to run, as the GUI wallet you
     systemctl enable emercoin.service
     systemctl start emercoin
 
-Note that in our [emercoin.service](emercoin.service) file we're running this as the user _emercoin_ and they'll need a config file in their `~/.emercoin` directory. This can be very simple, we only need something like this (be sure to put some rpcuser and rpcpassword on first two lines where I'm showing angle brackets):
+Note that in our [emercoin.service](emercoin.service) file we're running this as the user _emercoin_ and they'll need a config file in their `~/.emercoin` directory. This can be very simple, we only need something like this (be sure to put some _rpcuser_ and _rpcpassword_ on first two lines where I'm showing angle brackets):
 
     rpcuser=<usernamehere>
     rpcpassword=<userpasswordhere>
@@ -75,6 +73,3 @@ Note that it is still downloading the blockchain. Currently it is on block 51987
 Also note that to resolve your .emc and .coin domain names, the easiest way is to change your machine's DNS settings to point to [opennic's DNS servers](https://opennicproject.org)
 
 Have fun and keep an eye out. If time allows I will write up brief summaries of some of the nice tricks emercoin can do. 
-
-
-
