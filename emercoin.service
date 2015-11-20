@@ -1,0 +1,20 @@
+# systemd unit file
+
+[Unit]
+Description=emercoind
+After=network.target
+
+[Service]
+Type=forking
+User=emc
+Group=emc
+WorkingDirectory=/home/emercoin
+ExecStart=/usr/local/bin/emercoind -server -gen=0 -daemon
+ExecStop=/usr/local/bin/emercoind stop
+
+Restart=on-failure
+TimeoutStartSec=0
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
