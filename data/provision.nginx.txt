@@ -1,0 +1,12 @@
+apt-get -y update
+apt-get -y install nginx
+apt-get -y install jade vim
+
+rm -rf /etc/nginx/sites-available
+cp -r /vagrant/sites-available /etc/nginx/sites-available
+
+# set document root for nginx to shared dir
+# rm -rf /usr/share/nginx/www
+# ln -s /vagrant/www /usr/share/nginx/www
+
+service nginx start

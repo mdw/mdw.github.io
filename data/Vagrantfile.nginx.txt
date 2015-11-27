@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "hashicorp/precise32"
+  config.vm.hostname = 'webdev'
+
+  # provision server to run nginx
+  config.vm.provision "shell", path: "provision.sh"
+
+  # forward port 80 => port 8080 in host environment
+  config.vm.network "forwarded_port", guest: 80, host: 8080, id: "nginx"
+
+  # don't share default folder, share another
+  # config.vm.synced_folder "./", "/vagrant", disabled: true
+  # config.vm.synced_folder "www", "/vagrant/sites-enbaled"
+end

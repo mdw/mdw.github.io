@@ -1,0 +1,72 @@
+doctype html
+html( lang='en' )
+	head
+		title Vagrant Cheatsheet
+		style.
+			.centered { text-align: center; }
+			.container { width: 960px; margin: 2px auto; }
+			code { background: #ddd; padding: 3px 5px; }
+	body
+		.container
+			h1.centered Vagrant Cheatsheet
+			.content
+				h3 Vagrant commands
+				ul
+					li vagrant init, destroy
+					li vagrant up, halt
+					li vagrant suspend, resume
+					li vagrant provision - manually triggger, else only happens on UP
+					li vagrant reload - remember this whenever config changes made
+					li vagrant login - log into vagrantcloud (Atlas)
+					li vagrant share - do form folder with Vagrantfile
+					li vagrant share --ssh (password protected TLS share, expires ~ 1hr)
+					li vagrant connect --ssh name-of-share (client does this to connect to your vbox)
+					li vagrant status
+					li vagrant global-status (list ALL vms status anywhere on system)
+				br
+
+				h3 Virtualbox commands (ignore if using vmware or parallels)
+				ul
+					li vboxmanage list vms
+					li vboxmanage list runningvms
+				br
+
+				h3 Reusing provisioning
+				ul
+					li Shell / File / CM Tools (puppet, chef, ansible, salt, docker)
+					li these provisioner can be mixed and matched, run in order specified
+					li provisioning runs on UP only, or <code>vagrant provision</code>, <code>vagrant reload --provision</code>
+					li: code vagrant up --no-provision
+					li <b>box</b> is pre-provisioned with OS and tools
+					li create your own boxes with vagrant or <a href="http://packer.io">packer</a>
+					li <code>vagrant box</code> add, list, remove
+					li use dpkg (Debian) to check if installed before apt-get installing
+					li use command to check if npm module installed
+					li 
+				br
+
+				h3 Vagrant Synced Folders
+				ul
+					li rsync - use <code>rsync-auto</code> on vagrant box to watch for changes
+					li NFS, plugins can be used too
+				br
+
+				h3 Vagrant Packages
+				ul
+					li: code vagrant package &lt;vmname&gt; --output &lt;boxname&gt;
+					li only works with virtualbox VM currently
+					li: code vagrant box <add, list, update, remove, repackage>
+					li use packages, wildcards: <code>vagrant up /mongo*/</code>
+				br
+
+				h3 example files
+				ul
+					li: a(href="data/Vagrantfile.nginx.txt") Vagrantfile (nginx), 
+					li: a(href="data/Vagrantfile.mongodb.txt") Vagrantfile (mongodb)
+					li: a(href="data/provision.nginx.txt") provision.sh (nginx)
+					li: a(href="data/provision.mongodb.txt") provision.sh (mongodb)
+					li: a(href="data/standalone.pp.txt") puppet manifest (standalone server)
+					li: a(href="data/replicaset.pp.txt") puppet manifest (replica set)
+
+
+

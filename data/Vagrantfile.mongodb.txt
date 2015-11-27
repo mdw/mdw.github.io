@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  # create machine called 'standalone'
+  config.vm.define "standalone" do |standalone|
+  	standalone.vm.hostname = "standalone"
+  	standalone.vm.network "forwarded_port", host: 27018, guest: 27018, id: "mongodb"
+
+  	# where to find puppet modules?
+  	standalone.vm.provision :puppet do |puppet|
+  		puppet.module_path = "modules"          # puppet files stored here
+  		puppet.manifests_path = "manifests"     # path to our manifest
+  		puppet.manifest_file = "standalone.pp"  # name of manifest file
+  	end
+
+    standalone.vm.provision "shell", path: "loadzips.sh"
+
+  end
+
+  def config_zipset(config, node_num)
+    config.vm.define "zipset#{node_num}" do |replica|
+      replica.vm.box = "standalone"
+      replica.vm.hostname = "zipset#{node_num}"
+      replica.vm.network "private_network", ip: "192.168.50.10#{node_num}"
+
+      replica.vm.provision :puppet do |puppet|
+        puppet.module_path = "modules"
+        puppet.manifests_path = "manifests"
+        puppet.manifest_file = "replicaset.pp"
+      end
+    end
+  end
+
+  for node_num in 1..3
+    config_zipset config, node_num
+  end
+end

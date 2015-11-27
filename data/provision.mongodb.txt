@@ -1,0 +1,9 @@
+apt-get -y update
+su vagrant mkdir -p /data/db
+apt-get -y install mongodb mongodb-org-tools vim
+
+# mongodb is installed on host using puppet, as in:
+# puppet module install puppetlabs-mongodb --target-dir modules
+# also a puppet manifest was created in manifest/standalone.pp
+# note: puppet modules must be installed before provisioning
+
