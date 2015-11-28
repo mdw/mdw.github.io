@@ -17,15 +17,15 @@ Next I downloaded [emercoin](http://emercoin.com) from sourceforge -
 
     cd /usr/local/src
     wget http://downloads.sourceforge.net/project/emercoin/0.3.4/emercoin-0.3.4-linux.tar.gz
-    tar xvf emercoin-0.3.4-linux.tar.gz`
+    tar xvf emercoin-0.3.4-linux.tar.gz
     ln -s /usr/local/src/emercoin-0.3.4-linux/bin/64/emercoind /usr/local/bin/emercoind
 
-__emercoind__ is the headless daemon that you want to run, as the GUI wallet you would run on your desktop is _emercoin-qt_. I want to use it as a _systemd service_, so in /etc/systemd/system/ I create a [emercoin.service](emercoin.service) file and start the service by typing:
+__emercoind__ is the headless daemon that you want to run, as the GUI wallet you would run on your desktop is _emercoin-qt_. I want to use it as a _systemd service_, so in /etc/systemd/system/ I create a [emercoin.service](/data/emercoin.service) file and start the service by typing:
 
     systemctl enable emercoin.service
     systemctl start emercoin
 
-Note that in our [emercoin.service](emercoin.service) file we're running this as the user _emercoin_ and they'll need a config file in their `~/.emercoin` directory. This can be very simple, we only need something like this (be sure to put some _rpcuser_ and _rpcpassword_ on first two lines where I'm showing angle brackets):
+Note that in our [emercoin.service](/data/emercoin.service) file we're running this as the user _emercoin_ and they'll need a config file in their `~/.emercoin` directory. This can be very simple, we only need something like this (be sure to put some _rpcuser_ and _rpcpassword_ on first two lines where I'm showing angle brackets):
 
     rpcuser=<usernamehere>
     rpcpassword=<userpasswordhere>
