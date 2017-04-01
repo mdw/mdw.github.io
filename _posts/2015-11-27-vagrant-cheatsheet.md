@@ -4,6 +4,7 @@ title:  "Vagrant Cheatsheet"
 date:   2015-11-27
 categories: vagrant cheatsheet
 gravatar:	"https://en.gravatar.com/userimage/5924047/07f2a056d18fd10a7054b7c4d2e73ed8.jpeg"
+relatedlinks: "<a href='/cheatsheets/jade-cheatsheet.html' class='relatedlink'>vagrant cheatsheet</a>, <a href='/cheatsheets/regex-cheatsheet.html' class='relatedlink'>regex cheatsheet</a>, <a href='/cheatsheets/performance.html' class='relatedlink'>web performance cheatsheet</a>"
 excerpt: Here is a cheatsheet on Vagrant, using Virtualbox VMs. Covers basic commands and a few example setup and provisioning files.
 ---
 

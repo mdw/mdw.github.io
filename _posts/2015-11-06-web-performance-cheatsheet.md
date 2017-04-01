@@ -4,6 +4,7 @@ title:  "Web Performance Cheatsheet"
 date:   2015-11-06
 categories: web performance cheatsheet
 gravatar:	"https://en.gravatar.com/userimage/5924047/07f2a056d18fd10a7054b7c4d2e73ed8.jpeg"
+relatedlinks: "<a href='/cheatsheets/jade-cheatsheet.html' class='relatedlink'>vagrant cheatsheet</a>, <a href='/cheatsheets/jade-cheatsheet.html' class='relatedlink'>jade cheatsheet</a>, <a href='/cheatsheets/regex-cheatsheet.html' class='relatedlink'>regex cheatsheet</a>"
 excerpt: Here is a cheatsheet on Website Performance, touching on old familiar standards like the YSlow rules from Yahoo! This is not an in-depth explanation of anything, it's a quick and dirty reference list...
 ---
 
