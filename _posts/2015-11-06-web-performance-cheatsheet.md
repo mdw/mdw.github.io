@@ -12,6 +12,6 @@ Well I suppose there is a trend starting here. I seem to enjoy making myself che
 So here is a cheatsheet on Website Performance, touching on old familiar standards like the YSlow rules from 
 [Steve Souders](https://twitter.com/souders) at Yahoo! This is not an in-depth explanation of anything, it's a quick and dirty reference list to jog my memory as needed. Mostly just bullet points, so yeah, you may not even want to click the link if your goal is to actually learn about the topic.
 
-[web performance cheatsheet](/performance.html)
+[web performance cheatsheet](/cheatsheets/performance.html)
 
 Feel free to tell me about things I've omitted. I could certainly benefit by learning more about this topic. Of course, if the site loads too slowly for you to do so, which is highly unlikely, don't tell me. What do I look like, the ambassador of Github?

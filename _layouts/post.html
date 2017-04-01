@@ -13,4 +13,9 @@ layout: default
     {{ content }}
   </article>
 
+  <section id="related_links">
+  {% if page.relatedlinks %}
+  	{{ page.relatedlinks }}
+  {% endif %}
+  </section>
 </div>
